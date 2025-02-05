@@ -13,6 +13,7 @@ with open(input_file_path, "r") as infile:
     for line in infile:
         entry = json.loads(line.strip())
         file_name = entry.get("file_name")
+        file_name = file_name.split(".")[0] if file_name else None
         
         if file_name:
             output_file_path = os.path.join(output_dir, f"{file_name}.json")
